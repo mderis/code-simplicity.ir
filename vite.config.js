@@ -15,5 +15,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  base: '/code-simplicity.ir/',
+  publicPath: '/code-simplicity.ir/',
 })
