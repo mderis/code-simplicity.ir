@@ -1,81 +1,114 @@
 <template>
-  <div dir="rtl" class="bg-white font-sans text-gray-800 tracking-tight overflow-x-hidden">
+  <div dir="rtl" class="bg-gradient-to-br from-white via-indigo-50 to-purple-100 font-sans text-gray-800 tracking-tight">
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-l from-indigo-100 via-purple-50 to-pink-100 pt-24 pb-32 overflow-hidden">
-      <!-- Decorative SVG Wave -->
-      <svg class="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320">
-        <path fill="#fff" fill-opacity="1"
-              d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,176C672,160,768,160,864,154.7C960,149,1056,139,1152,138.7C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-      </svg>
+    <section class="relative min-h-[80vh] flex items-center overflow-hidden">
+      <div class="absolute top-[-100px] right-[-150px] w-[400px] h-[400px] rounded-full bg-purple-200 opacity-30 blur-[80px]"></div>
+      <div class="absolute bottom-[-100px] left-[-150px] w-[400px] h-[400px] rounded-full bg-pink-200 opacity-30 blur-[100px]"></div>
 
-      <div class="max-w-6xl mx-auto px-6 md:px-10 relative z-10 flex flex-col lg:flex-row items-center gap-14">
-
-        <!-- Book Info -->
-        <div class="text-center lg:text-right flex-1 animate-fade-in">
-          <h1 class="text-5xl font-extrabold leading-snug text-gray-900 mb-3">سادگی کد</h1>
-          <h2 class="text-xl font-light text-gray-600 mb-6">ترجمه فارسی کتاب Code Simplicity</h2>
-          <p class="text-sm text-gray-500 mb-8">نوشته مکس کانات-الکساندر | ترجمه: مسلم دریس جرفی</p>
-
-          <!-- Buttons -->
-          <div id="purchase" class="flex flex-wrap justify-center lg:justify-start gap-4">
-            <a href="https://www.digikala.com/product/dkp-18606281/" target="_blank"
-               class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-xl shadow-md transition transform hover:scale-105 hover:shadow-lg">
-              خرید از دیجی‌کالا
-            </a>
-            <a href="https://www.motekhassesan.com/?p=52527" target="_blank"
-               class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-xl shadow-md transition transform hover:scale-105 hover:shadow-lg">
-              سایت انتشارات
-            </a>
-            <a href="https://taaghche.com/book/226467/سادگی-کد" target="_blank"
-               class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-xl shadow-md transition transform hover:scale-105 hover:shadow-lg">
-              طاقچه
-            </a>
-            <a href="https://www.faraketab.ir/book/514866-سادگی-کد" target="_blank"
-               class="bg-indigo-600 text-white font-semibold py-2 px-5 rounded-xl shadow-md transition transform hover:scale-105 hover:shadow-lg">
-              فراکتاب
+      <div class="max-w-6xl mx-auto px-6 md:px-12 w-full flex flex-col-reverse lg:flex-row items-center gap-14 z-10">
+        <!-- Glass Text Box -->
+        <div class="flex-1 text-center lg:text-right bg-white/40 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-white/30">
+          <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-snug">سادگی کد</h1>
+          <h2 class="text-xl text-gray-700 mb-6">ترجمه فارسی کتاب Code Simplicity</h2>
+          <p class="text-sm text-gray-600 mb-4">نوشته مکس کانات-الکساندر | ترجمه: مسلم دریس جرفی</p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 mt-6">
+            <a v-for="(link, label) in purchaseLinks" :key="label" :href="link" target="_blank"
+               class="bg-white/60 text-indigo-700 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md border border-indigo-200 hover:bg-white transition">
+              {{ label }}
             </a>
           </div>
         </div>
 
         <!-- Book Cover -->
-        <div class="flex justify-center lg:justify-end animate-fade-in delay-100">
-          <div class="glass-frame">
-            <img
-                src="https://file1.cdn.faraketab.ir/content_file/content-1-514866-1088371/%D8%B3%D8%A7%D8%AF%DA%AF%DB%8C%20%DA%A9%D8%AF.avif"
-                alt="جلد کتاب سادگی کد"
-                class="w-64 rounded-xl shadow-2xl"
-            />
+        <div class="bg-white/30 border border-white/30 backdrop-blur-md p-4 rounded-3xl shadow-2xl">
+          <img
+              src="https://file1.cdn.faraketab.ir/content_file/content-1-514866-1088371/%D8%B3%D8%A7%D8%AF%DA%AF%DB%8C%20%DA%A9%D8%AF.avif"
+              alt="جلد کتاب سادگی کد"
+              class="w-64 rounded-xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- What You’ll Learn -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center bg-white/40 backdrop-blur-md rounded-2xl p-10 border border-white/30 shadow-md">
+        <h3 class="text-2xl font-bold mb-6 text-gray-900">چه چیزهایی یاد می‌گیرید؟</h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-right text-gray-700">
+          <li>📘 اصول سادگی در توسعه نرم‌افزار</li>
+          <li>🔧 کاهش هزینه‌های نگهداری کد</li>
+          <li>📐 قانون تغییر و قانون آینده</li>
+          <li>🧠 تصمیم‌گیری بهتر در طراحی سیستم</li>
+          <li>🚀 افزایش بهره‌وری تیم‌های توسعه</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What's Inside -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center bg-white/40 backdrop-blur-md rounded-2xl p-10 border border-white/30 shadow-md">
+        <h3 class="text-2xl font-bold mb-6 text-gray-900">فهرست مطالب کتاب</h3>
+        <ul class="list-disc pr-5 space-y-2 text-right text-gray-700">
+          <li>فصل ۱: چرا سادگی مهم است؟</li>
+          <li>فصل ۲: قانون تغییر</li>
+          <li>فصل ۳: پیچیدگی و هزینه</li>
+          <li>فصل ۴: طراحی ساده در عمل</li>
+          <li>فصل ۵: کد آینده‌دار</li>
+          <li>فصل ۶: چک‌لیست سادگی</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center bg-white/40 backdrop-blur-md border border-white/30 rounded-3xl shadow-xl p-10">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">نظرات خوانندگان</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
+          <div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/40 shadow">
+            <p class="italic text-gray-700">«این کتاب مفاهیم عمیق را با زبانی ساده منتقل می‌کند. خواندنش را به همه توصیه می‌کنم!»</p>
+            <p class="mt-4 text-sm text-gray-500 text-left">— علی رضایی، توسعه‌دهنده ارشد</p>
+          </div>
+          <div class="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/40 shadow">
+            <p class="italic text-gray-700">«سادگی در توسعه نرم‌افزار را بهتر درک کردم. یک راهنمای واقعی!»</p>
+            <p class="mt-4 text-sm text-gray-500 text-left">— سارا محمودی، معمار نرم‌افزار</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About the Book -->
-    <section id="about" class="py-20 bg-white">
-      <div class="max-w-4xl mx-auto px-6 text-justify animate-fade-in">
-        <h3 class="text-2xl font-semibold text-center mb-6 text-gray-900">درباره کتاب</h3>
-        <div class="bg-white border border-gray-100 shadow-lg rounded-2xl p-8 leading-8 text-gray-700">
-          <p>
-            کتاب سادگی کد (Code Simplicity) نوشته‌ی مکس کانات-الکساندر، اثری ارزشمند در زمینه‌ی طراحی و توسعه‌ی نرم‌افزار است که به اصول بنیادین سادگی در کدنویسی می‌پردازد. این کتاب با زبانی ساده و مفاهیمی عمیق، به برنامه‌نویسان، معماران نرم‌افزار و مدیران فنی کمک می‌کند تا نرم‌افزارهایی بسازند که پایدار، قابل نگهداری و توسعه‌پذیر باشند...
-          </p>
+    <!-- FAQ -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto bg-white/40 backdrop-blur-md rounded-2xl p-10 border border-white/30 shadow-md text-right">
+        <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">سوالات متداول</h3>
+        <div class="space-y-6 text-gray-700 leading-loose">
+          <div>
+            <h4 class="font-bold mb-1">این کتاب برای چه کسانی مناسب است؟</h4>
+            <p>برای تمام سطوح برنامه‌نویسان و معماران نرم‌افزار</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">آیا مطالعه‌ی کتاب نیاز به تجربه زیاد دارد؟</h4>
+            <p>خیر، مطالب برای همه قابل درک هستند</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">آیا نسخه دیجیتال دارد؟</h4>
+            <p>بله، در طاقچه و فراکتاب موجود است</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About the Translator -->
-    <section id="author" class="py-20 bg-gray-50">
-      <div class="max-w-4xl mx-auto px-6 text-center animate-fade-in">
-        <div class="bg-white border border-gray-200 shadow-md rounded-xl p-8">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">درباره مترجم</h3>
-          <p class="text-lg font-medium mb-2 text-gray-800">مسلم دریس جرفی</p>
-          <p class="text-sm text-gray-600">برنامه‌نویس، علاقه‌مند به طراحی نرم‌افزار ساده و قابل نگهداری</p>
-        </div>
+    <!-- About Translator -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto text-center bg-white/40 backdrop-blur-md p-10 rounded-2xl border border-white/30 shadow-md">
+        <h3 class="text-2xl font-bold mb-4 text-gray-900">درباره مترجم</h3>
+        <p class="text-lg font-medium text-gray-800 mb-2">مسلم دریس جرفی</p>
+        <p class="text-sm text-gray-600">برنامه‌نویس و مترجم علاقه‌مند به سادگی در طراحی نرم‌افزار</p>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 py-6 text-center text-sm text-gray-500">
+    <footer class="text-center text-sm text-gray-500 py-8">
       &copy; {{ new Date().getFullYear() }} مسلم دریس جرفی. تمامی حقوق محفوظ است.
     </footer>
   </div>
@@ -84,31 +117,21 @@
 <script>
 export default {
   name: 'LandingPage',
-};
+  data() {
+    return {
+      purchaseLinks: {
+        'خرید از دیجی‌کالا': 'https://www.digikala.com/product/dkp-18606281/',
+        'سایت انتشارات': 'https://www.motekhassesan.com/?p=52527',
+        'طاقچه': 'https://taaghche.com/book/226467/سادگی-کد',
+        'فراکتاب': 'https://www.faraketab.ir/book/514866-سادگی-کد'
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
-/* Custom Glass Frame */
-.glass-frame {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(12px);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out both;
-}
-
-.delay-100 {
-  animation-delay: 0.3s;
+body {
+  font-family: 'Vazirmatn', sans-serif;
 }
 </style>
